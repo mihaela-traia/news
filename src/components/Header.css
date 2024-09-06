@@ -30,6 +30,9 @@
   .Header .custom-dropdown-menu {
     display: none;
   }
+  .nav a {
+    display: block;
+  }
 
   .Header .menu-icon {
     display: block;

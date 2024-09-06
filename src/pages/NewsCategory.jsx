@@ -9,13 +9,23 @@ function NewsCategory() {
   const { categoryId } = useParams();
   const newsCategoryEndpoint = getNewsCategoriesEndpoint(categoryId);
   const news = useFetch(newsCategoryEndpoint);
-
-  console.log(news);
+  const adaptedNewsList = getNewsList(news);
+  let title = "";
+  switch (categoryId) {
+    case "technology":
+      title = "Tech";
+      break;
+    case "football":
+      title = "Fotbal";
+      break;
+    default:
+      break;
+  }
   return (
     <Layout>
-      <Container>
-        <h1>Numele categoriei</h1>
-        <p>Parametrul venit din rută: {categoryId}</p>
+      <Container className="my-5">
+        <h1 className="mb-5 pt-3">{title}</h1>
+        <NewsCardList newsList={adaptedNewsList} />
       </Container>
     </Layout>
   );
