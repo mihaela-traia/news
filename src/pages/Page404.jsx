@@ -1,4 +1,6 @@
 import "./Page404.css";
+import { Link } from "react-router-dom";
+import "./Page404.module.css";
 import Container from "react-bootstrap/Container";
 
 function Page404() {
@@ -11,7 +13,11 @@ function Page404() {
         </p>
         <strong className="error404">404 :(</strong>
         <p className="h4 text-center">
-          Hai înapoi pe site să vezi o nouă știre!
+          Hai{" "}
+          <Link to="/" className="text-secondary">
+            înapoi pe site
+          </Link>{" "}
+          să vezi o nouă știre!
         </p>
       </Container>
     </div>
