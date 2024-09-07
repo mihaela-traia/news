@@ -16,6 +16,7 @@ function NewsCardList(props) {
                 imgSrc={news.thumbnail}
                 title={news.title}
                 description={news.description}
+                hasCloseButton={news.hasCloseButton}
               />
             </div>
           );

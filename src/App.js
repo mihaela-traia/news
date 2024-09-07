@@ -4,6 +4,9 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import NewsCategory from "./pages/NewsCategory";
 import NewsDetails from "./pages/NewsDetails";
+import { useReducer } from "react";
+import { FavoritesContext } from "./store/Favorites/context";
+import { initialState, favoritesReducer } from "./store/Favorites/reducer";
 
 const router = createBrowserRouter([
   {
@@ -26,9 +29,19 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [favoritesState, favoritesDispatch] = useReducer(
+    favoritesReducer,
+    initialState
+  );
+  const favoritesContextValue = {
+    favoritesState,
+    favoritesDispatch,
+  };
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <FavoritesContext.Provider value={favoritesContextValue}>
+        <RouterProvider router={router} />
+      </FavoritesContext.Provider>
     </div>
   );
 }
